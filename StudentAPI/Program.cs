@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<StudentContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("dbconn")));
+options.UseNpgsql("Host=localhost;Database=student;Username=postgres;Password=15Nov1998")
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
